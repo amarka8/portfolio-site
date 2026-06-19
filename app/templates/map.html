@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Around the World{% endblock %}
+
+{% block content %}
+<section class="map-page">
+    <div class="map-intro">
+        <h1 class="map-title">Around the World</h1>
+        <p class="map-subtitle">
+            Places the team has wandered. Click a <strong>city</strong> to fly there,
+            or click a <strong>name</strong> to take their whole tour.
+        </p>
+    </div>
+
+    <div class="globe-layout">
+        <aside class="globe-panel">
+            {% for person in team_places %}
+            <div class="globe-member" style="--member-color: {{ person.color }}">
+                {# Clicking the name starts an auto tour through that person's cities. #}
+                <button type="button" class="globe-member-btn" data-member="{{ person.member }}">
+                    <span class="globe-member-dot"></span>
+                    <span class="globe-member-name">{{ person.member }}</span>
+                    <span class="globe-member-go">Take the tour &rarr;</span>
+                </button>
+                <ul class="globe-place-list">
+                    {% for place in person.places %}
+                    <li>
+                        <button type="button" class="globe-place-btn"
+                                data-name="{{ place.name }}"
+                                data-tag="{{ place.tag }}"
+                                data-lat="{{ place.lat }}"
+                                data-lng="{{ place.lng }}">
+                            {{ place.name }}
+                        </button>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </aside>
+
+        <div class="globe-stage">
+            <div id="globe"></div>
+            <div id="globe-caption" class="globe-caption" aria-live="polite"></div>
+            <p class="globe-hint">Drag to spin &middot; scroll to zoom</p>
+        </div>
+    </div>
+</section>
+
+{# Single source of truth for the globe: the same data that rendered the panel. #}
+<script id="places-data" type="application/json">{{ team_places | tojson }}</script>
+{% endblock %}
+
+{% block scripts %}
+{# Standalone globe.gl build bundles three.js, so one script tag is enough. #}
+<script src="https://unpkg.com/globe.gl"></script>
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+{% endblock %}

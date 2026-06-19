@@ -491,3 +491,340 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* ============================== Work Experience ============================== */
+
+.work-intro {
+    color: #555555;
+    font-size: 18px;
+    margin: -16px 0 36px;
+}
+
+.work-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    align-items: start;
+}
+
+.work-column {
+    background-color: #ffffff;
+    border-radius: 16px;
+    border-top: 4px solid var(--member-color, #1d539f);
+    padding: 24px 24px 28px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.work-member {
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: #15233d;
+    margin: 0 0 24px;
+}
+
+.work-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--member-color, #1d539f);
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+/* Vertical line that the role markers sit on. */
+.work-timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 22px;
+    border-left: 2px solid #e3e6ee;
+    margin-left: 6px;
+}
+
+.work-item {
+    position: relative;
+    margin-bottom: 22px;
+}
+
+.work-item:last-child {
+    margin-bottom: 0;
+}
+
+.work-marker {
+    position: absolute;
+    left: -30px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--member-color, #1d539f);
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 0 2px var(--member-color, #1d539f);
+}
+
+.work-card {
+    background-color: #f7f8fb;
+    border-radius: 12px;
+    padding: 14px 16px;
+}
+
+.work-dates {
+    color: var(--member-color, #1d539f);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+}
+
+.work-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #15233d;
+    margin: 0;
+}
+
+.work-org {
+    font-size: 15px;
+    color: #2f3a4d;
+    margin: 3px 0 0;
+}
+
+.work-kind {
+    color: #8a93a6;
+}
+
+.work-location {
+    font-size: 13px;
+    color: #8a93a6;
+    margin: 2px 0 8px;
+}
+
+.work-summary {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #444c5c;
+    margin: 0;
+}
+
+.work-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1d539f;
+    text-decoration: none;
+}
+
+.work-link:hover {
+    text-decoration: underline;
+}
+
+/* ================================== Map ===================================== */
+
+/* Dark "space" treatment so the globe pops against the otherwise light site. */
+.map-page {
+    background: radial-gradient(circle at 50% 0%, #0d1a40 0%, #060912 60%);
+    color: #e8ecf6;
+    padding: 48px 48px 56px;
+    box-sizing: border-box;
+    min-height: calc(100vh - 88px);
+}
+
+.map-intro {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.map-title {
+    font-size: 44px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    color: #ffffff;
+}
+
+.map-subtitle {
+    font-size: 17px;
+    color: #aab4d4;
+    margin: 0 auto;
+    max-width: 640px;
+}
+
+.map-subtitle strong {
+    color: #ffffff;
+}
+
+.globe-layout {
+    display: flex;
+    gap: 28px;
+    align-items: stretch;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.globe-panel {
+    flex: 0 0 320px;
+    max-height: 72vh;
+    overflow-y: auto;
+    padding: 8px 14px 8px 4px;
+}
+
+.globe-member {
+    margin-bottom: 18px;
+    padding-left: 12px;
+    border-left: 3px solid var(--member-color, #6ea8ff);
+}
+
+.globe-member-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px 4px;
+    color: #ffffff;
+    text-align: left;
+}
+
+.globe-member-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--member-color, #6ea8ff);
+    box-shadow: 0 0 10px var(--member-color, #6ea8ff);
+    flex-shrink: 0;
+}
+
+.globe-member-name {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.globe-member-go {
+    margin-left: auto;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--member-color, #6ea8ff);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.globe-member-btn:hover .globe-member-go {
+    opacity: 1;
+}
+
+.globe-place-list {
+    list-style: none;
+    margin: 4px 0 0;
+    padding: 0 0 0 22px;
+}
+
+.globe-place-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #c7d0ec;
+    font-size: 15px;
+    padding: 7px 10px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.globe-place-btn:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+.globe-place-btn.is-active {
+    background-color: var(--member-color, #6ea8ff);
+    color: #06122e;
+    font-weight: 700;
+}
+
+.globe-stage {
+    position: relative;
+    flex: 1;
+    min-height: 72vh;
+    border-radius: 18px;
+    overflow: hidden;
+    background-color: #05070f;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+#globe {
+    width: 100%;
+    height: 100%;
+}
+
+.globe-caption {
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    background-color: rgba(5, 10, 24, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    font-size: 15px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    max-width: 90%;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.globe-caption.is-visible {
+    opacity: 1;
+}
+
+.globe-caption-member {
+    color: #aab4d4;
+}
+
+.globe-hint {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    margin: 0;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+}
+
+/* globe.gl renders this inside its floating tooltip on hover. */
+.globe-point-label {
+    background-color: rgba(5, 10, 24, 0.9);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #ffffff;
+}
+
+@media (max-width: 900px) {
+    .globe-layout {
+        flex-direction: column;
+    }
+
+    .globe-panel {
+        flex: none;
+        max-height: 240px;
+        order: 2;
+    }
+
+    .globe-stage {
+        order: 1;
+        min-height: 60vh;
+    }
+
+    .map-title {
+        font-size: 34px;
+    }
+}

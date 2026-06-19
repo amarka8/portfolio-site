@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Work Experience{% endblock %}
+
+{% block content %}
+<section class="page-content work-page">
+    <h1 class="page-heading">Work Experience</h1>
+    <p class="work-intro">Where the team has been building, shipping, and learning.</p>
+
+    {# One column per teammate; --member-color drives the accent for the whole block. #}
+    <div class="work-board">
+        {% for person in team_work %}
+        <section class="work-column" style="--member-color: {{ person.color }}">
+            <h2 class="work-member">
+                <span class="work-dot"></span>{{ person.member }}
+            </h2>
+
+            <ol class="work-timeline">
+                {% for role in person.roles %}
+                <li class="work-item">
+                    <div class="work-marker"></div>
+                    <div class="work-card">
+                        <p class="work-dates">{{ role.dates }}</p>
+                        <h3 class="work-title">{{ role.title }}</h3>
+                        <p class="work-org">{{ role.org }}<span class="work-kind"> · {{ role.kind }}</span></p>
+                        <p class="work-location">{{ role.location }}</p>
+                        <p class="work-summary">{{ role.summary }}</p>
+                        {% if role.link %}
+                        <a class="work-link" href="{{ role.link.url }}" target="_blank" rel="noopener">
+                            {{ role.link.label }} &rarr;
+                        </a>
+                        {% endif %}
+                    </div>
+                </li>
+                {% endfor %}
+            </ol>
+        </section>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

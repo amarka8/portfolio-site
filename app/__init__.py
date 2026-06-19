@@ -7,6 +7,8 @@ from dotenv import load_dotenv
 # Hobby content lives in its own module so teammates can update images and names
 # without touching route or template logic (Single Responsibility).
 from .hobbies_data import TEAM_HOBBIES
+from .work_history_data import TEAM_WORK_HISTORY
+from .places_data import TEAM_PLACES
 
 load_dotenv()
 
@@ -25,7 +27,9 @@ TEAM_MEMBERS = [
 # New nav items only need an entry here once a matching route exists.
 NAV_PAGES = [
     {"endpoint": "index", "label": "Home"},
+    {"endpoint": "work", "label": "Work"},
     {"endpoint": "hobbies", "label": "Hobbies"},
+    {"endpoint": "map_page", "label": "Map"},
 ]
 
 app = Flask(__name__)
@@ -50,10 +54,22 @@ def index():
     )
 
 
+@app.route("/work")
+def work():
+    logger.info("Serving work history page")
+    return render_template("work.html", title="Work Experience", team_work=TEAM_WORK_HISTORY)
+
+
 @app.route("/hobbies")
 def hobbies():
     logger.info("Serving hobbies page")
     return render_template("hobbies.html", team_hobbies=TEAM_HOBBIES)
+
+
+@app.route("/map")
+def map_page():
+    logger.info("Serving map page")
+    return render_template("map.html", title="Around the World", team_places=TEAM_PLACES)
 
 
 @app.errorhandler(404)
