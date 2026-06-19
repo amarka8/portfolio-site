@@ -10,6 +10,7 @@ from .hobbies_data import TEAM_HOBBIES
 from .work_history_data import TEAM_WORK_HISTORY
 from .places_data import TEAM_PLACES
 from .education_data import TEAM_EDUCATION
+from .about_us_data import TEAM_ABOUT_US
 
 load_dotenv()
 
@@ -32,6 +33,7 @@ NAV_PAGES = [
     {"endpoint": "hobbies", "label": "Hobbies"},
     {"endpoint": "map_page", "label": "Map"},
     {"endpoint": "education", "label": "Education"},
+    {"endpoint": "about_us", "label": "About Us"},
 ]
 
 app = Flask(__name__)
@@ -78,6 +80,12 @@ def map_page():
 def education():
     logger.info("Serving education page")
     return render_template("education.html", title="Education", team_education=TEAM_EDUCATION)
+
+
+@app.route("/about_us")
+def about_us():
+    logger.info("Serving about us page")
+    return render_template("about_us.html", title="About Us", team_about=TEAM_ABOUT_US)
 
 
 @app.errorhandler(404)

@@ -751,6 +751,110 @@ body {
     text-decoration: underline;
 }
 
+/* ================================ About Us ================================== */
+
+.about-us-intro {
+    color: #555555;
+    font-size: 18px;
+    margin: -16px 0 40px;
+}
+
+.about-us-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.about-us-card {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    background-color: #ffffff;
+    border-radius: 16px;
+    border-left: 5px solid var(--member-color, #1d539f);
+    padding: 32px 32px 32px 28px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.about-us-photo-wrap {
+    flex-shrink: 0;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--member-color, #1d539f);
+}
+
+.about-us-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.about-us-body {
+    flex: 1;
+}
+
+.about-us-name {
+    font-size: 28px;
+    font-weight: 700;
+    color: #15233d;
+    margin: 0 0 4px;
+}
+
+.about-us-role {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--member-color, #1d539f);
+    margin: 0 0 14px;
+}
+
+.about-us-bio {
+    font-size: 16px;
+    line-height: 1.75;
+    color: #444c5c;
+    margin: 0 0 20px;
+}
+
+.about-us-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.about-us-link {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--member-color, #1d539f);
+    text-decoration: none;
+    border: 1.5px solid var(--member-color, #1d539f);
+    border-radius: 999px;
+    padding: 5px 16px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.about-us-link:hover {
+    background-color: var(--member-color, #1d539f);
+    color: #ffffff;
+}
+
+@media (max-width: 640px) {
+    .about-us-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 24px;
+    }
+
+    .about-us-links {
+        justify-content: center;
+    }
+}
+
 /* ================================== Map ===================================== */
 
 /* Dark "space" treatment so the globe pops against the otherwise light site. */
