@@ -1,16 +1,21 @@
 import logging
 import os
 
-from flask import Flask, render_template
+from peewee import *
+from flask import Flask, render_template, request
 from dotenv import load_dotenv
 
-# Hobby content lives in its own module so teammates can update images and names
+# Hobby, education, places, work history, and about us content live in their own modules so teammates can update things
 # without touching route or template logic (Single Responsibility).
 from .hobbies_data import TEAM_HOBBIES
 from .work_history_data import TEAM_WORK_HISTORY
 from .places_data import TEAM_PLACES
 from .education_data import TEAM_EDUCATION
 from .about_us_data import TEAM_ABOUT_US
+from playhouse.shortcuts import model_to_dict
+
+import datetime
+
 
 load_dotenv()
 
@@ -31,8 +36,8 @@ NAV_PAGES = [
 
 app = Flask(__name__)
 
-mydb = 
-MYSQLDatabase(os.getenv("MYSQL_DATABASE"),
+
+mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
     user=os.getenv("MYSQL_USER"),
     password=os.getenv("MYSQL_PASSWORD"),
     host=os.getenv("MYSQL_HOST"),
@@ -41,6 +46,17 @@ MYSQLDatabase(os.getenv("MYSQL_DATABASE"),
 
 print(mydb)
 
+class TimelinePost(Model):
+    name = CharField()
+    email = CharField()
+    content = TextField()
+    created_at = DateTimeField(default=datetime.datetime.now)
+
+    class Meta:
+        database = mydb
+
+mydb.connect()
+mydb.create_tables([TimelinePost])
 
 @app.context_processor
 def inject_globals():
@@ -48,6 +64,24 @@ def inject_globals():
     return {
         "nav_pages": NAV_PAGES,
         "url": os.getenv("URL"),
+    }
+
+@app.route("/api/timeline_post", methods = ['POST'])
+def post_time_line_post():
+    name = request.form['name']
+    email = request.form['email']
+    content = request.form['content']
+    timeline_post = TimelinePost.create(name = name, email = email, content = content)
+
+    return model_to_dict(timeline_post)
+
+@app.route("/api/timeline_post", methods = ['GET'])
+def get_time_line_post():
+    # same as SELECT * from TimelinePost ORDER BY TimelinePost.created_at DESC;
+    return {
+        'timeline_posts': [
+            model_to_dict(p) for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
+        ]
     }
 
 
