@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Timeline{% endblock %}
+
+
+{% block content %}
+<section class = "page-content" id = "Timeline-page">
+
+    <h1 class = "Timeline-heading">Timeline</h1>
+
+    <p class = "Timeline-header-desc">A Timeline of Important Moments in my Life</p>
+
+    <section id = "timeline-board">
+
+    </section>
+
+    <section>
+        <form id="form" hidden>
+            <input name="name" type="text">
+            <input name="email "type="text">
+            <input name="description "type="text">
+            <button id = "form-submit" type="submit">Submit</button>
+        </form> 
+    </section>
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/timeline.js') }}"></script>
+{% endblock %}
