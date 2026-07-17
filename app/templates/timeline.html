@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-content">
+    <h1 class="page-heading">Timeline</h1>
+    <p>Share a note on the team timeline.</p>
+
+    <form id="timeline-form" action="/api/timeline_post" method="post">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+
+        <label for="content">Content</label>
+        <textarea id="content" name="content" required></textarea>
+
+        <button type="submit">Post</button>
+    </form>
+
+    <div id="timeline-posts"></div>
+</section>
+{% endblock %}
