@@ -15,10 +15,27 @@
     </section>
 
     <section>
-        <form id="form" hidden>
-            <input name="name" type="text">
-            <input name="email "type="text">
-            <input name="description "type="text">
+        <form id="form" class = "timeline-form" hidden>
+            <h2>Add New Timeline Entry</h2>
+
+            <section class = "form-grid">
+
+                <section class = "form-field">
+                    <label for="name">Name *</label>
+                    <input name="name"type="text">
+                </section>
+
+                <section class = "form-field">
+                    <label for="email">Email *</label>
+                    <input name="email"type="text">
+                </section>
+
+                <section class = "form-field form-field-full">
+                    <label for="content">Content *</label>
+                    <input name="content"type="text">
+                </section>
+            </section>
+
             <button id = "form-submit" type="submit">Submit</button>
         </form> 
     </section>

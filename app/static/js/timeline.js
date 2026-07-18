@@ -3,11 +3,12 @@
  *
  * @param {string} url
  * @param {(data: unknown) => data is T} isT
+ * @param {RequestInit} options
  * @returns {Promise<T>}
  */
-function typedFetch(url, isT) {
-    return fetch(url)
-        .then((response) => {
+async function typedFetch(url, isT, options) {
+    return fetch(url, options)
+        .then(async (response) => {
             if (!response.ok) {
                 throw new Error(response.statusText || `Request failed with ${response.status}`);
             }
@@ -39,13 +40,19 @@ function isTimelinePostsResponse(data) {
     return typeof data === "object" && data !== null
         && "timeline_posts" in data
         && Array.isArray(data.timeline_posts)
-        && data.timeline_posts.every((post) => (
-            typeof post === "object" && post !== null
-            && "name" in post && isString(post.name)
-            && "email" in post && isString(post.email)
-            && "content" in post && isString(post.content)
-        ));
+        && data.timeline_posts.every(isTimelinePostResponse);
 }
+
+/** 
+ * @param {unknown} data 
+ * */
+function isTimelinePostResponse(data){
+    return data !== null 
+        && "name" in data && isString(data.name)
+        && "email" in data && isString(data.email)
+        && "content" in data && isString(data.content)
+}
+
 
 /**
  * @param {{ name: string, email: string, content: string }} post
@@ -113,13 +120,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     form.removeAttribute("hidden");
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
         e.preventDefault();
         e.stopPropagation();
 
         // prevent submit button from being hit again
         form.querySelector("#form-submit").style.display = "none"; 
-
 
         // Safely cast currentTarget to HTMLFormElement
         const formElement = e.currentTarget;
@@ -130,14 +136,28 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Convert payload to a structured key-value object
         const payload = Object.fromEntries(formData.entries());
 
-        const timeline = document.querySelector("work-timeline");
+        const timeline = document.querySelector(".work-timeline");
+
+
+        try{
+            const res = await typedFetch("/api/timeline_post", isTimelinePostResponse, {method: "POST", body: formData});
+        } catch(error){
+            const errorElement = document.createElement("p");
+            errorElement.className = "timeline-error";
+            errorElement.setAttribute("role", "alert");
+            errorElement.textContent = error instanceof Error
+                ? `Unable to add timeline post: ${error.message}`
+                : "Unable to add timeline post.";
+            timelineBoard.replaceChildren(errorElement);
+        }
         
         if (timeline instanceof HTMLElement){
-            timeline.appendChild(createTimelineItem(payload));
+            timeline.appendChild(createTimelineItem({name:payload.name, email: payload.email, content: payload.content}));
+            // readd submit button and reset form
+            form.querySelector("#form-submit").style.display = "block"; 
+            // form.style.setProperty("--member-color", AMAR_COLOR);
+            form.reset();
         }
-
-        // readd submit button 
-        form.querySelector("#form-submit").style.display = "block"; 
 
     });
 
