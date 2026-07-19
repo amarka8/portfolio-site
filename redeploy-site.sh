@@ -21,7 +21,8 @@ source ./python3-virtualenv/bin/activate
 pip install -r requirements.txt
 
 # Start Flask in a detached tmux session
-tmux new-session -d -s flask \
-"cd $PROJECT_DIR && source ./python3-virtualenv/bin/activate && flask run --host=0.0.0.0"
+systemctl daemon-reload
+systemctl restart myportfolio
+systemctl status myportfolio
 
 echo "Redeployment complete!"
