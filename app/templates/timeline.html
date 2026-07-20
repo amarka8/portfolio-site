@@ -1,23 +1,49 @@
 {% extends "base.html" %}
 
+{% block title %}Timeline{% endblock %}
+
+
 {% block content %}
-<section class="page-content">
-    <h1 class="page-heading">Timeline</h1>
-    <p>Share a note on the team timeline.</p>
+<section class = "page-content" id = "Timeline-page">
 
-    <form id="timeline-form" action="/api/timeline_post" method="post">
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" required>
+    <h1 class = "Timeline-heading">Timeline</h1>
 
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required>
+    <p class = "Timeline-header-desc">A Timeline of Important Moments in my Life</p>
 
-        <label for="content">Content</label>
-        <textarea id="content" name="content" required></textarea>
+    <section id = "timeline-board">
 
-        <button type="submit">Post</button>
-    </form>
+    </section>
 
-    <div id="timeline-posts"></div>
+    <section>
+        <form id="form" class = "timeline-form" hidden>
+            <h2>Add New Timeline Entry</h2>
+
+            <section class = "form-grid">
+
+                <section class = "form-field">
+                    <label for="name">Name *</label>
+                    <input name="name"type="text">
+                </section>
+
+                <section class = "form-field">
+                    <label for="email">Email *</label>
+                    <input name="email"type="text">
+                </section>
+
+                <section class = "form-field form-field-full">
+                    <label for="content">Content *</label>
+                    <input name="content"type="text">
+                </section>
+            </section>
+
+            <button id = "form-submit" type="submit">Submit</button>
+        </form> 
+    </section>
+
 </section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/timeline.js') }}"></script>
 {% endblock %}

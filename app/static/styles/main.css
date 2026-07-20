@@ -1014,3 +1014,138 @@ body {
         font-size: 34px;
     }
 }
+
+/* ================================== Timeline ===================================== */
+
+.Timeline-heading {
+    color: #000000;
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0 0 32px;
+}
+
+.Timeline-header-desc {
+    color: #555555;
+    font-size: 18px;
+    margin: -16px 0 36px;
+}
+
+#timeline-board {
+    max-width: 760px;
+}
+
+.timeline-error {
+    color: #9b1c1c;
+    font-weight: 600;
+}
+
+.timeline-form {
+    margin: 32px 0;
+    max-width: 760px;
+    padding: 28px;
+    box-sizing: border-box;
+    border-top: 4px solid #ff6b6b;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 10px 28px rgba(20, 31, 54, 0.12);
+}
+
+.timeline-form h2 {
+    margin: 0 0 24px;
+    color: #171b25;
+    font-size: 22px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 24px;
+}
+
+.form-field {
+    min-width: 0;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 8px;
+    color: #171b25;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.form-field input {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    border: 1px solid #d9dee8;
+    border-radius: 9px;
+    outline: none;
+    background: #ffffff;
+    color: #171b25;
+    font: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-field input::placeholder {
+    color: #929aab;
+}
+
+.form-field input:focus {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.18);
+}
+
+.form-field-full {
+    grid-column: 1 / -1;
+}
+
+#form-submit {
+    display: block;
+    margin: 24px 0 0 auto;
+    min-height: 44px;
+    padding: 10px 22px;
+    border: 0;
+    border-radius: 9px;
+    background: #ff6262;
+    box-shadow: 0 5px 12px rgba(255, 98, 98, 0.25);
+    color: #ffffff;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+#form-submit:hover {
+    background: #ed4f4f;
+    box-shadow: 0 7px 16px rgba(255, 98, 98, 0.32);
+    transform: translateY(-1px);
+}
+
+#form-submit:focus-visible {
+    outline: 3px solid rgba(255, 107, 107, 0.35);
+    outline-offset: 3px;
+}
+
+#form-submit:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+    .timeline-form {
+        padding: 22px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-field-full {
+        grid-column: auto;
+    }
+
+    #form-submit {
+        width: 100%;
+    }
+}

@@ -28,6 +28,7 @@ logger = logging.getLogger(__name__)
 # New nav items only need an entry here once a matching route exists.
 NAV_PAGES = [
     {"endpoint": "index", "label": "Home"},
+    {"endpoint": "timeline", "label": "Timeline"},
     {"endpoint": "work", "label": "Work"},
     {"endpoint": "hobbies", "label": "Hobbies"},
     {"endpoint": "map_page", "label": "Map"},
@@ -95,7 +96,16 @@ def get_time_line_post():
             model_to_dict(p) for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
         ]
     }
+    
 
+@app.route("/timeline")
+def timeline():
+    logger.info("Serving timeline page")
+    
+    return render_template(
+        "timeline.html",
+        title="Timeline of Important Events"
+    )
 
 @app.route("/")
 def index():
