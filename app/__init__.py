@@ -140,10 +140,6 @@ def education():
     return render_template("education.html", title="Education", team_education=TEAM_EDUCATION)
 
 
-@app.route("/timeline")
-def timeline():
-    logger.info("Serving timeline page")
-    return render_template("timeline.html", title="Timeline")
 
 
 @app.errorhandler(404)
