@@ -33,7 +33,6 @@ NAV_PAGES = [
     {"endpoint": "hobbies", "label": "Hobbies"},
     {"endpoint": "map_page", "label": "Map"},
     {"endpoint": "education", "label": "Education"},
-    {"endpoint": "timeline", "label": "Timeline"},
 ]
 
 app = Flask(__name__)
