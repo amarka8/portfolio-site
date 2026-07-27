@@ -4,9 +4,6 @@ set -e
 
 PROJECT_DIR="/home/portfolio-site"
 
-# Kill all tmux sessions
-tmux kill-server 2>/dev/null || true
-
 # Go to project directory
 cd "$PROJECT_DIR"
 
@@ -14,15 +11,9 @@ cd "$PROJECT_DIR"
 git fetch
 git reset origin/main --hard
 
-# Activate virtual environment
-source ./python3-virtualenv/bin/activate
+# deactivate any existing docker container run of our myportfolio container
+docker compose -f docker-compose.prod.yml down
 
-# Install dependencies
-pip install -r requirements.txt
+# activate any existing docker container run of our myportfolio container
+docker compose -f docker-compose.prod.yml up -d --build
 
-# Start Flask in a detached tmux session
-systemctl daemon-reload
-systemctl restart myportfolio
-systemctl status myportfolio
-
-echo "Redeployment complete!"
