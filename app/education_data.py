@@ -11,34 +11,34 @@
 #   - link:         optional {"label", "url"} for the school or program
 
 TEAM_EDUCATION = [
-    {
-        "member": "Adam Maatouk",
-        "color": "#4ecdc4",
-        "degrees": [
-            {
-                "institution": "Concordia University",
-                "degree": "B.Eng. Computer Engineering",
-                "dates": "May 2025 – May 2029",
-                "location": "Montreal, Quebec, Canada",
-                "highlights": [
-                    "Relevant coursework: Operating Systems, Distributed Systems, Software Architecture",
-                    "Member of Concordia's Software Engineering Student Society",
-                ],
-                "link": {"label": "concordia.ca", "url": "https://www.concordia.ca"},
-            },
-            {
-                "institution": "College Maisonneuve",
-                "degree": "Techniques de l'Informatique - Developpement D'Applications",
-                "dates": "August 2022 – May 2025",
-                "location": "Montreal, Quebec, Canada",
-                "highlights": [
-                    "Relevant coursework: Programming, Database, Networking, Web Development",
-                    "91% average GPA in the program and mandatory internship",
-                ],
-                "link": {"label": "cmaisonneuve.qc.ca", "url": "https://www.cmaisonneuve.qc.ca"},
-            },
-        ],
-    },
+    # {
+    #     "member": "Adam Maatouk",
+    #     "color": "#4ecdc4",
+    #     "degrees": [
+    #         {
+    #             "institution": "Concordia University",
+    #             "degree": "B.Eng. Computer Engineering",
+    #             "dates": "May 2025 – May 2029",
+    #             "location": "Montreal, Quebec, Canada",
+    #             "highlights": [
+    #                 "Relevant coursework: Operating Systems, Distributed Systems, Software Architecture",
+    #                 "Member of Concordia's Software Engineering Student Society",
+    #             ],
+    #             "link": {"label": "concordia.ca", "url": "https://www.concordia.ca"},
+    #         },
+    #         {
+    #             "institution": "College Maisonneuve",
+    #             "degree": "Techniques de l'Informatique - Developpement D'Applications",
+    #             "dates": "August 2022 – May 2025",
+    #             "location": "Montreal, Quebec, Canada",
+    #             "highlights": [
+    #                 "Relevant coursework: Programming, Database, Networking, Web Development",
+    #                 "91% average GPA in the program and mandatory internship",
+    #             ],
+    #             "link": {"label": "cmaisonneuve.qc.ca", "url": "https://www.cmaisonneuve.qc.ca"},
+    #         },
+    #     ],
+    # },
     {
         "member": "Amar Kanakamedala",
         "color": "#ff6b6b",
@@ -56,36 +56,37 @@ TEAM_EDUCATION = [
                 "link": {"label": "rice.edu", "url": "https://www.rice.edu"},
             },
         ],
-    },
-    {
-        "member": "Gabriel Changamire",
-        "color": "#c792ea",
-        "degrees": [
-            {
-                "institution": "Bellevue College",
-                "degree": "B.S. Computer Science",
-                "dates": "2025 – 2027",
-                "location": "Bellevue, Washington",
-                "gpa": "3.8 / 4.0",
-                "highlights": [
-                    "Mentors in Tech (MinT) Fellow",
-                    "Relevant coursework: Data Structures, Java, Python, Discrete Mathematics",
-                    "Academic Excellence Award recipient",
-                ],
-                "link": {"label": "bellevuecollege.edu", "url": "https://www.bellevuecollege.edu"},
-            },
-            {
-                "institution": "Bellevue College",
-                "degree": "A.S. Computer Science",
-                "dates": "Sep 2023 – Jun 2025",
-                "location": "Bellevue, Washington",
-                "highlights": [
-                    "Mentors in Tech (MinT) Fellow",
-                    "Relevant coursework: Data Structures, Java, Python, Discrete Mathematics",
-                    "Academic Excellence Award recipient",
-                ],
-                "link": {"label": "bellevuecollege.edu", "url": "https://www.bellevuecollege.edu"},
-            },
-        ],
-    },
+    }
+    # ,
+    # {
+    #     "member": "Gabriel Changamire",
+    #     "color": "#c792ea",
+    #     "degrees": [
+    #         {
+    #             "institution": "Bellevue College",
+    #             "degree": "B.S. Computer Science",
+    #             "dates": "2025 – 2027",
+    #             "location": "Bellevue, Washington",
+    #             "gpa": "3.8 / 4.0",
+    #             "highlights": [
+    #                 "Mentors in Tech (MinT) Fellow",
+    #                 "Relevant coursework: Data Structures, Java, Python, Discrete Mathematics",
+    #                 "Academic Excellence Award recipient",
+    #             ],
+    #             "link": {"label": "bellevuecollege.edu", "url": "https://www.bellevuecollege.edu"},
+    #         },
+    #         {
+    #             "institution": "Bellevue College",
+    #             "degree": "A.S. Computer Science",
+    #             "dates": "Sep 2023 – Jun 2025",
+    #             "location": "Bellevue, Washington",
+    #             "highlights": [
+    #                 "Mentors in Tech (MinT) Fellow",
+    #                 "Relevant coursework: Data Structures, Java, Python, Discrete Mathematics",
+    #                 "Academic Excellence Award recipient",
+    #             ],
+    #             "link": {"label": "bellevuecollege.edu", "url": "https://www.bellevuecollege.edu"},
+    #         },
+    #     ],
+    # },
 ]

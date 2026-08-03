@@ -8,21 +8,21 @@
 #   - links:   list of {"label", "url"} for GitHub, LinkedIn, etc.
 
 TEAM_ABOUT_US = [
-    {
-        "name": "Adam Maatouk",
-        "photo": "adam-maatouk.png",
-        "role": "MLH Fellow · Software Engineer",
-        "color": "#4ecdc4",
-        "bio": (
-            "Adam is a Computer Engineering student at Concordia University in Montreal. "
-            "He has a deep interest in building Software and building his own startup. "
-            "Outside of code he can usually be found behind a camera lens or lifting."
-        ),
-        "links": [
-            {"label": "GitHub", "url": "https://github.com/AdamMTK-NB"},
-            {"label": "LinkedIn", "url": "https://www.linkedin.com/in/adammaatouk/"},
-        ],
-    },
+    # {
+    #     "name": "Adam Maatouk",
+    #     "photo": "adam-maatouk.png",
+    #     "role": "MLH Fellow · Software Engineer",
+    #     "color": "#4ecdc4",
+    #     "bio": (
+    #         "Adam is a Computer Engineering student at Concordia University in Montreal. "
+    #         "He has a deep interest in building Software and building his own startup. "
+    #         "Outside of code he can usually be found behind a camera lens or lifting."
+    #     ),
+    #     "links": [
+    #         {"label": "GitHub", "url": "https://github.com/AdamMTK-NB"},
+    #         {"label": "LinkedIn", "url": "https://www.linkedin.com/in/adammaatouk/"},
+    #     ],
+    # },
     {
         "name": "Amar Kanakamedala",
         "photo": "amar-kanakamedala.png",
@@ -38,20 +38,21 @@ TEAM_ABOUT_US = [
             {"label": "GitHub", "url": "https://github.com/amarka8"},
             {"label": "LinkedIn", "url": "https://linkedin.com/in/amar-kanakamedala/"},
         ],
-    },
-    {
-        "name": "Gabriel Changamire",
-        "photo": "gabriel-changamire.png",
-        "role": "MLH Fellow · Software Engineer",
-        "color": "#c792ea",
-        "bio": (
-            "Gabriel is a Computer Science student at Bellevue College and a Mentors in Tech "
-            "(MinT) Fellow. He enjoys exploring new "
-            "places, reading broadly, and competing on the basketball court."
-        ),
-        "links": [
-            {"label": "GitHub", "url": "https://github.com/gabrielchangamire-arch"},
-            {"label": "LinkedIn", "url": "https://www.linkedin.com/in/gabriel-changamire/"},
-        ],
-    },
+    }
+    # ,
+    # {
+    #     "name": "Gabriel Changamire",
+    #     "photo": "gabriel-changamire.png",
+    #     "role": "MLH Fellow · Software Engineer",
+    #     "color": "#c792ea",
+    #     "bio": (
+    #         "Gabriel is a Computer Science student at Bellevue College and a Mentors in Tech "
+    #         "(MinT) Fellow. He enjoys exploring new "
+    #         "places, reading broadly, and competing on the basketball court."
+    #     ),
+    #     "links": [
+    #         {"label": "GitHub", "url": "https://github.com/gabrielchangamire-arch"},
+    #         {"label": "LinkedIn", "url": "https://www.linkedin.com/in/gabriel-changamire/"},
+    #     ],
+    # },
 ]
