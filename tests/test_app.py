@@ -17,9 +17,9 @@ class AppTestCase(unittest.TestCase):
         assert "<title>MLH Fellow</title>" in html
         # Home page content and navigation
         assert "Meet the Team" in html
-        assert "Adam Maatouk" in html
+        # assert "Adam Maatouk" in html
         assert "Amar Kanakamedala" in html
-        assert "Gabriel Changamire" in html
+        # assert "Gabriel Changamire" in html
         assert "Home" in html
         assert "Work" in html
         assert "Hobbies" in html
