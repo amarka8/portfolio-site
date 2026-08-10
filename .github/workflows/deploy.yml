@@ -41,11 +41,9 @@ jobs:
       - name: Send Deployment Success Notification
         if: success()
         run: |
-          curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" \
-            -d "content=🚀 Deployment Successful"
+          curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"
 
       - name: Send Deployment Failure Notification
         if: failure()
         run: |
-          curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" \
-            -d "content=🚨 Deployment Failed"
+          curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚨 Deployment Failed"
