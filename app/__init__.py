@@ -84,6 +84,7 @@ def post_time_line_post():
     if '@' not in email or email.startswith('@') or email.endswith('@'):
         return "Invalid email", 400
 
+    # TODO: add a field that points to images stored elsewhere (e.g. google cloud) through a path
     timeline_post = TimelinePost.create(name=name, email=email, content=content)
     return model_to_dict(timeline_post)
 
