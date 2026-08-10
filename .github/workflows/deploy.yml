@@ -30,8 +30,11 @@ jobs:
 
       - name: Deploy site
         run: |
-          ssh my-vps '/home/portfolio-site/redeploy-site.sh'
-          docker compose ps
+          ssh my-vps '
+            /home/portfolio-site/redeploy-site.sh &&
+            cd /home/portfolio-site &&
+            docker compose ps
+          '
 
       - name: Send Deployment Notification
         run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"
