@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="profile">
+<!-- <div class="profile">
     <div id="profile-picture" class="profile-picture">
         <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="MLH Fellow profile photo">
     </div>
     <h1>{{ title }}</h1>
-</div>
+</div> -->
 
 <section class="team">
-    <h2 class="team-heading">Meet the Team</h2>
+    <h2 class="team-heading">Meet Me</h2>
     <div class="team-members">
         {% for member in team_about %}
         <article class="team-member" style="--member-color: {{ member.color }}">
